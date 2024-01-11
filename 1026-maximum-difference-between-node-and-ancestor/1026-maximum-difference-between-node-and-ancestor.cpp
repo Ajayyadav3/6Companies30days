@@ -26,10 +26,10 @@ private:
         auto left = dfs(root->left, m);
         auto right = dfs(root->right, m);
 
-        int minVal = std::min(root->val, std::min(left.first, right.first));
-        int maxVal = std::max(root->val, std::max(left.second, right.second));
+        int minVal = min(root->val, min(left.first, right.first));
+        int maxVal = max(root->val, max(left.second, right.second));
 
-        m = std::max({m, std::abs(minVal - root->val), std::abs(maxVal - root->val)});
+        m = max({m, abs(minVal - root->val), abs(maxVal - root->val)});
 
         return {minVal, maxVal};
     }
